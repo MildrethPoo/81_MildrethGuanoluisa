@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY',default='your secret key')
+SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
-    
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'djangocrud.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         default='postgres://dj_portfolio_3y69_user:fVUAXW7HbNNZicjMWeMRugG3cP01V6E2@dpg-cp0gss7jbltc73dtgilg-a.oregon-postgres.render.com/dj_portfolio_3y69',
-    conn_max_age=600
+        conn_max_age=600
     )
 }
 
@@ -124,8 +124,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 if not DEBUG:
-    STATIC_ROOT =os._path.join(BASE_DIR,'staticfiles')
-    STATICFILES_STORAGE ='whitenoise.middleware.WhiteNoiseMiddleware'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.middleware.WhiteNoiseMiddleware'
 
 LOGIN_URL = "/signin"
 # Default primary key field type
